@@ -1,3 +1,4 @@
+import 'package:basic_signup/homePage.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
@@ -7,6 +8,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   GlobalKey<FormState> _key = new GlobalKey();
+  bool _autoValidate = false;
   String name, email;
   @override
   Widget build(BuildContext context) {
@@ -72,10 +74,16 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  _sendToNextTheme(){
-    if(_key.currentState.validate()){
+  _sendToNextTheme() {
+    if (_key.currentState.validate()) {
       _key.currentState.save();
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => HomePage(
+                    name: name,
+                    email: email,
+                  )));
     }
   }
-
 }
