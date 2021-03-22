@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
+class HomePage extends StatelessWidget {
+  final String name, email;
 
-class _HomePageState extends State<HomePage> {
+  HomePage({this.name, this.email});
+
   @override
   Widget build(BuildContext context) {
     return Container();
